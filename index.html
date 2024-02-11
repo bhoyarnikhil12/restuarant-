@@ -1,327 +1,435 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Website </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="style.css">
+html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Restaurant Website </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .my container{
+        border: 1px solid black;
+    }
+    #myimg{
+        width: 10rem;
+        height: auto;
+    }
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+    }
+    
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    #myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-<style>
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.my container{
-    border: 1px solid black;
-}
-#myimg{
-    width: 10rem;
-    height: auto;
-}
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-body, html {
-  height: 100%;
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
 }
 
-* {
-  box-sizing: border-box;
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
 }
-.container {
-      position: relative;
-   }
-   img {
-      width: 100%;
-   }
-   .form-content {
-      position: absolute;
-	  bottom: 2%;
-	  right: 2%;
-	  background-color: #cccccc;
-	  height: 400px;
-   }
-   input[type=text], input[type=password] {
-	  width: 90%;
-	  padding: 15px;
-	  margin: 5px 0 22px 0;
-	  border: none;
-	  background: #f1f1f1;
-	}
-	h1 {
-	   text-align: center;
-	}
-	.btn {
-	   background-color: blue;
-	   color: white;
-	   padding: 10px;
-	   margin: 5px;
-	}
-	label {
-	   color: blue;
-	   font-size: 16px;
-	}
-	.btn:hover {
-	   background-color: black;
-	}
-    footer {
-        padding: 5px;
-        background:darkblue;
-        color: white;
-      }
-</style>
-</div>
-</style>
-</head>
 
-</style>
-</head>
-<body>
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
 
-    <div class="container  my container">
-        <div class="row">
-            <div class="col-sm-12">
-                
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+    body, html {
+      height: 100%;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    .container {
+          position: relative;
+       }
+       img {
+          width: 100%;
+       }
+       .form-content {
+          position: absolute;
+          bottom: 2%;
+          right: 2%;
+          background-color:transparent;
+          height: 400px;
+       }
+       input[type=text], input[type=password] {
+          width: 90%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          border: none;
+          background: #f1f1f1;
+        }
+        h1 {
+           text-align: center;
+        }
+        .btn {
+           background-color: blue;
+           color: white;
+           padding: 10px;
+           margin: 5px;
+        }
+        label {
+           color: blue;
+           font-size: 16px;
+        }
+        .btn:hover {
+           background-color: black;
+        }
+        footer {
+            padding: 5px;
+            background:darkblue;
+            color: white;
+          }
+    </style>
     </div>
-
-<div class="row">
-    <div class="col-sm-6">
-
+    </style>
+    </head>
+    
+    </style>
+    </head>
+    <body>
+    
+        <div class="container  my container">
+            <div class="row">
+                <div class="col-sm-12">
+                    
+        </div>
+    
+    <div class="row">
+        <div class="col-sm-6">
+    
+        </div>
     </div>
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <nav class="navbar navbar-expand-lg navbar-dark red bg-dark red">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Sanskruti Pure Veg</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact us</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    <section class="showcase-area" id="showcase">
-        <div class="showcase-container">
-            <h1 class="text-center" style="color: blue;">Pure Vegetarian Food</h1>
-            <p class="text-center" style="color: limegreen;">Eat Healty, it is good for our health.</p>
-            <a href="#food-menu" class="btn btn-primary">Menu</a>
-
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="about-wrapper container">
-            <div class="about-text">
-                <p class= "text-center"  style="color: darkmagenta;">About Us</p>
-                <h2 class="text-center" style="color: rgb(43, 25, 25);">We have been making healthy food last for 10 years</h2>
-                <p>
-                  Sanskruti The Cultural Garden Restaurant in  Pune ... Restaurants in Pune provide various cuisines with an aesthetic seating arrangement and the best ...
-                  Menu at Sanskruti features a variety of traditional Indian dishes with vegan & Jain specialities. Call +07112254585
-                 Very delicious & yummy food. Family crowd. Food can be prepared spicy/medium spicy/bland as per your choice without any hesitation. Cleanliness is equally good.
-                 please Visit our Hotel once and enjoy your healthy and Tasty food Thank you 
-                </p>
-            </div>
-               <div class="col-lg-11 col-md-8">
-                  <div class="featured-item">
-                     <div class="featured-item-img">
-               <div class="column">
-                  <div class="card" style="width: 18rem;">
-                 <img src="https://i.postimg.cc/mgpwzmx9/about-photo.jpg" alt="Food" style="width:100%">
-                  <h3>Strawbery</h3>
-                  <div class="featured-content-list">
-                  <a href="https://en.wikipedia.org/wiki/Strawberry" class="btn btn-primary" target="blank">learn
-                      more</a>
-               </div>
-            </div>
-         </div>
-      </div>
-               <div class="column">
-                  <div class="card" style="width: 18rem;">
-                 <img src="https://i.postimg.cc/yxThVPXk/food1.jpg" alt="Type of Food" style="width:100%">
-                  <h3>Fruit</h3>
-                  <div class="featured-content-list">
-                  <a href="https://en.wikipedia.org/wiki/Fruit" class="btn btn-primary" target="blank">learn
-                     more</a>
-               </div>
-            </div>
-         </div>
-      </div>
-               <div class="column">
-                  <div class="card" style="width: 18rem;">
-                 <img src="https://i.postimg.cc/Nffm6Rkk/food2.jpg" alt="vegetable" style="width: 100%">
-                  <h3>vegetable</h3>
-                  <div class="featured-content-list">
-                  <a href="https://en.wikipedia.org/wiki/Vegetable" class="btn btn-primary" target="blank">learn
-                     more</a>
-               </div>
-             </div>
-             </div>
-              </div>
-    </section>
-    <section id="Food menu"></section>
-    <div class="col-lg-11 col-md-8">
-      <div class="featured-item">
-         <div class="featured-item-img">
-      <div class="column">
-         <div class="card" style="width: 18rem;">
-        <h2 class="food-menu-heading">Food Menu</h2>
-                    <img src="https://i.postimg.cc/wTLMsvSQ/food-menu1.jpg" alt="Food Menu item 1" style="width: 100%;" />
-                    <h2 class="food-titile">Food Menu Item 1</h2>
-                    <p>
-                  It is a mixture of all vegetable included bringal,tomato ,onion and so on 
-                    </p>
-                    <p class="food-price">Price: &#8377; 280</p>
-                </div>
-            </div>
-
-            <div class="food-menu-item">
-                <div class="food-img">
-                  <div class="column">
-                     <div class="card" style="width: 18rem;">
-                    <h2 class="food-menu-heading">Food Menu</h2>
-                    <img src="https://i.postimg.cc/sgzXPzzd/food-menu2.jpg" alt="Food Menu item 2" style="width: 100%;" />
-                    <h2 class="food-titile">Food Menu Item 2</h2>
-                    <p>
-                  It is a mixture of all dry fruits included Almond,cashew nut,Raisins, Lions .
-                  It is good for Health.
-                    </p>
-                    <p class="food-price">Price: &#8377; 290</p>
-                </div>
-            </div>
-            <div class="food-menu-item">
-               <div class="food-img">
-                  <div class="column">
-                     <div class="card" style="width: 18rem;">
-                    <h2 class="food-menu-heading">Food Menu</h2>
-                    <img src="https://i.postimg.cc/8zbCtYkF/food-menu3.jpg" alt="Food menu Item3" style="width: 100%;" />
-                    <h2 class="food-titile">Food Menu Item 3</h2>
-                    <p>
-                     It is a type of Fresh Vegetables.
-                    </p>
-                    <p class="food-price">Price: &#8377; 250</p>
-                </div>
-            </div>
-            <section id="food-menu">
-               <div class="col-lg-11 col-md-8">
-                  <div class="featured-item">
-                     <div class="featured-item-img">
-                        <div class="column">
-                           <div class="card" style="width: 18rem;">
-                          <h2 class="food-menu-heading">Food Menu</h2>
-                    <img src="https://i.postimg.cc/Yq98p5Z7/food-menu4.jpg" alt="Food Menu Item4" style="width:100%;" />
-                    <h2 class="food-titile">Food Menu Item 4</h2>
-                    <p>
-               It is the mixxture of salad like tomato,ginger,Soya chunks,lentils.
-                    </p>
-                    <p class="food-price">Price: &#8377; 270</p>
-                </div>
-            </div>
-            <div class="column">
-               <div class="card" style="width: 18rem;">
-                  <h2 class="food-titile">Food Menu</h2>
-                    <img src="https://i.postimg.cc/KYnDqxkP/food-menu5.jpg" alt="Food Menu Item5" style="width:100% ;" />
-                    <h2 class="food-titile">Food Menu Item 5</h2>
-                    <p>
-                  It is a morning breakfast dish Various types of Vegetables and fruits are included.
-                    </p>
-                    <p class="food-price">Price: &#8377; 240</p>
-                </div>
-            </div>
-            <div class="column">
-               <div class="card" style="width: 18rem;">
-                  <h2 class="food-titile">Food Menu</h2>
-                    <img src="https://i.postimg.cc/Jnxc8xQt/food-menu6.jpg" alt="Food item 6" style="width: 100%;" />
-                    <h2 class="food-titile">Food Menu Item 6</h2>
-                    <p>
-                        It is the mixture of all types of Fruits inccluding Strawbery cutting piece of all fruits.
-                    </p>
-                    <p class="food-price">Price: &#8377; 250</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-11 col-md-10">
-         <div class="featured-item">
-            <div class="featured-item-img">
-               <div class="column">
-                  <div class="card" style="width: 18rem;">
- <img src="https://i.postimg.cc/5Nrw360Y/male-photo1.jpg" alt="Ross Lee" style="width:100% ;" />
- <p class="customer-name" style="color: black;">Ross Lee</p>
-
-                <p>
-                    I am Ross Lee visit these Hotel .good tasty and good food and Healthy food.
-                </p>
-            </div>
-            </div>
-                        <div class="column">
-                           <div class="card" style="width: 18rem;">
-                        <img src="https://i.postimg.cc/sxd2xCD2/female-photo1.jpg" alt="Amelia Watson" style="width: 100%;" />
-                        <p class="customer-name">Amelia Watson</p>
-                <p>
-                  I am Amelia Watson when i visit these Hotel and eating food in these Hotel i feel like i do lunch in my Home 
-                  Good tasty food and Healthy food .Staff also good.
-                </p>
-            </div>
-            </div>
-            
-                           <div class="column">
-                           <div class="card" style="width: 18rem;">
-                        <img src="https://i.postimg.cc/fy90qvkV/male-photo3.jpg" alt="" />
-                        <p class="customer-name">Ben Roy</p>
-                <p>
-                    Good taste and good food
-                </p>
-
-            </div>
-        </div>
-    </section>
-          <div class="container">
-            <img src="https://i.postimg.cc/1XvYM67V/restraunt2.jpg" alt="img"  style="width: 100%;"/>
-            <div class="form-content">
-                <form>
-                    <h2>Contact Us</h2>
-                    <input type="text" placeholder="Your Name" style="width: 100%;" />
-                <input type="email" placeholder="E-Mail"style="width: 100%;" />
-                <br>
-                <textarea cols="30" rows="6" placeholder="Type Your Message"></textarea>
-                <br>
-                <a href="#" class="btn btn-primary">Submit</a>
-                
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+        <nav class="navbar navbar-expand-lg navbar-dark red bg-dark red">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Sanskruti Pure Veg</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact us</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
+              </div>
             </div>
+          </nav>
+        <section class="showcase-area" id="showcase">
+            <div class="showcase-container">
+                <h1 class="text-center" style="color: blue;">Pure Vegetarian Food</h1>
+                <p class="text-center" style="color: limegreen;">Eat Healty, it is good for our health.</p>
+                <a href="#food-menu" class="btn btn-primary">Menu</a>
+    
+            </div>
+        </section>
+    
+        <section id="about">
+            <div class="about-wrapper container">
+                <div class="about-text">
+                    <p class= "text-center"  style="color: darkmagenta;">About Us</p>
+                    <h2 class="text-center" style="color: rgb(43, 25, 25);">We have been making healthy food last for 10 years</h2>
+                    <p>
+                      Sanskruti The Cultural Garden Restaurant in  Pune ... Restaurants in Pune provide various cuisines with an aesthetic seating arrangement and the best ...
+                      Menu at Sanskruti features a variety of traditional Indian dishes with vegan & Jain specialities. Call +07112254585
+                     Very delicious & yummy food. Family crowd. Food can be prepared spicy/medium spicy/bland as per your choice without any hesitation. Cleanliness is equally good.
+                     please Visit our Hotel once and enjoy your healthy and Tasty food Thank you 
+                    </p>
+                </div>
+                   <div class="col-lg-11 col-md-8">
+                      <div class="featured-item">
+                         <div class="featured-item-img">
+                   <div class="column">
+                      <div class="card" style="width: 18rem;">
+<img id="myImg" src="https://i.postimg.cc/mgpwzmx9/about-photo.jpg" alt="Strawbery" style="width:100%;max-width:300px">
+<a href="https://en.wikipedia.org/wiki/Strawberry" class="btn btn-primary" target="blank">learn
+    more</a>
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+                   </div> 
+                </div>
+             </div>
           </div>
-          <br>
-    <footer id="footer">
-        <h2>Restaurant &copy; all rights reserved</h2>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./index.js"></script>
-</body>
-</html>
+                   <div class="column">
+                      <div class="card" style="width: 18rem;">
+  <img id="myImg" src="https://i.postimg.cc/yxThVPXk/food1.jpg" alt="Fruit" style="width:100%;max-width:300px">
+<a href="https://en.wikipedia.org/wiki/Fruit" class="btn btn-primary" target="blank">learn
+    more</a>
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img02">
+  <div id="caption"></div> 
+</div>
+</div>
+ </div>
+</div>
+</div>
+                   <div class="column">
+                      <div class="card" style="width: 18rem;">
+                        <img id="myImg" src="https://i.postimg.cc/Nffm6Rkk/food2.jpg" alt="Vegetable" style="width:100%;max-width:300px">
+<a href="https://en.wikipedia.org/wiki/Vegetable" class="btn btn-primary" target="blank">learn
+    more</a>
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+                   </div>
+                 </div>
+                 </div>
+                  </div>
+        </section>
+        <section id="Food menu"></section>
+        <div class="col-lg-11 col-md-8">
+          <div class="featured-item">
+             <div class="featured-item-img">
+          <div class="column">
+             <div class="card" style="width: 18rem;">
+                <h2 class="food-titile">Food Menu Item 1</h2>
+                <img src="https://i.postimg.cc/wTLMsvSQ/food-menu1.jpg" alt="food Menu Item1" style="width:100%;"/>
+                <h2 class="food-titile">Food Menu Item 1</h2>
+                <p>
+              It is a mixture of all vegetable included bringal,tomato ,onion and so on 
+                </p>
+                <p class="food-price">Price: &#8377; 280</p>
+            </div>
+ </div>
+    
+                <div class="food-menu-item">
+                    <div class="food-img">
+                      <div class="column">
+                         <div class="card" style="width: 18rem;">
+                        <h2 class="food-menu-heading">Food Menu</h2>
+                        <img src="https://i.postimg.cc/sgzXPzzd/food-menu2.jpg" alt="Food Menu item 2" style="width: 100%;" />
+                        <h2 class="food-titile">Food Menu Item 2</h2>
+                        <p>
+                      It is a mixture of all dry fruits included Almond,cashew nut,Raisins, Lions .
+                      It is good for Health.
+                        </p>
+                        <p class="food-price">Price: &#8377; 290</p>
+                    </div>
+                </div>
+                <div class="food-menu-item">
+                   <div class="food-img">
+                      <div class="column">
+                         <div class="card" style="width: 18rem;">
+                        <h2 class="food-menu-heading">Food Menu</h2>
+                        <img src="https://i.postimg.cc/8zbCtYkF/food-menu3.jpg" alt="Food menu Item3" style="width: 100%;" />
+                        <h2 class="food-titile">Food Menu Item 3</h2>
+                        <p>
+                         It is a type of Fresh Vegetables.
+                        </p>
+                        <p class="food-price">Price: &#8377; 250</p>
+                    </div>
+                </div>
+                <section id="food-menu">
+                   <div class="col-lg-11 col-md-8">
+                      <div class="featured-item">
+                         <div class="featured-item-img">
+                            <div class="column">
+                               <div class="card" style="width: 18rem;">
+                              <h2 class="food-menu-heading">Food Menu</h2>
+                        <img src="https://i.postimg.cc/Yq98p5Z7/food-menu4.jpg" alt="Food Menu Item4" style="width:100%;" />
+                        <h2 class="food-titile">Food Menu Item 4</h2>
+                        <p>
+                   It is the mixxture of salad like tomato,ginger,Soya chunks,lentils.
+                        </p>
+                        <p class="food-price">Price: &#8377; 270</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card" style="width: 18rem;">
+                       <h2 class="food-titile">Food Menu</h2>
+                         <img src="https://i.postimg.cc/Jnxc8xQt/food-menu6.jpg" alt="Food item 5" style="width: 100%;" />
+                         <h2 class="food-titile">Food Menu Item 5</h2>
+                         <p>
+                             It is the mixture of all types of Fruits inccluding Strawbery cutting piece of all fruits.
+                         </p>
+                         <p class="food-price">Price: &#8377; 250</p>
+                     </div>
+                 </div>
+             </div>
+                <div class="column">
+                   <div class="card" style="width: 18rem;">
+                      <h2 class="food-titile">Food Menu</h2>
+                        <img src="https://i.postimg.cc/KYnDqxkP/food-menu5.jpg" alt="Food Menu Item6"style="width:100%  ;" />
+                        <h2 class="food-titile">Food Menu Item 6</h2>
+                        <p>
+                            .
+                        </p>
+                        <p class="food-price">Price: &#8377; 240</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1 class="text-center" style="color: slateblue;">Our Custmour Say</h1>
+            </div>
+            <div class="col-lg-11 col-md-10">
+             <div class="featured-item">
+                <div class="featured-item-img">
+                   <div class="column">
+                      <div class="card" style="width: 18rem;">
+     <img src="https://i.postimg.cc/5Nrw360Y/male-photo1.jpg" alt="Ross Lee" style="width:100% ;" />
+     <p class="customer-name" style="color: black;">Ross Lee</p>
+    
+                    <p>
+                        I am Ross Lee visit these Hotel .good tasty and good food and Healthy food.
+                    </p>
+                </div>
+                </div>
+                            <div class="column">
+                               <div class="card" style="width: 18rem;">
+                            <img src="https://i.postimg.cc/sxd2xCD2/female-photo1.jpg" alt="Amelia Watson" style="width: 100%;" />
+                            <p class="customer-name">Amelia Watson</p>
+                    <p>
+                      I am Amelia Watson when i visit these Hotel and eating food in these Hotel i feel like i do lunch in my Home 
+                      Good tasty food and Healthy food .Staff also good.
+                    </p>
+                </div>
+                </div>
+                
+                               <div class="column">
+                               <div class="card" style="width: 18rem;">
+                            <img src="https://i.postimg.cc/fy90qvkV/male-photo3.jpg" alt="" />
+                            <p class="customer-name">Ben Roy</p>
+                    <p>
+                        Good taste and good food
+                    </p>
+    
+                </div>
+            </div>
+        </section>
+              <div class="container">
+                <img src="https://i.postimg.cc/1XvYM67V/restraunt2.jpg" alt="img"  style="width: 100%;"/>
+                <div class="form-content"> 
+                    <form>
+                        <h2 style="color:brown;">Contact Us</h2>
+                        <input type="text" placeholder="Your Name" style="width: 100%;" />  
+                    <input type="text" placeholder="E-Mail" style="width: 100%;" />
+                    <br>
+                    <textarea cols="30" rows="6" placeholder="Type Your Message" style="width: 100%;"></textarea>
+                    <br>
+                    <a href="#" class="btn btn-primary">Submit</a>
+                    
+                    </form>
+                </div>
+              </div>
+              <br>
+        <footer id="footer">
+            <h2 class="text-center">Restaurant &copy; all rights reserved
+                <h2 class="text-left" style="color: magenta;">Sanskruti Pure Veg</h2>
+        <h2 class="text-left">Sunday Closed</h2>
+                Opening Timings :
+                <br>
+                Mon 10:00 Am to 10:00 Pm
+                <br>
+                Tue 10:00 Am to 10:00 Pm
+                <br>
+                Wen 10:00 Am to 10:00 Pm
+                <br>
+                Thu 10:00 Am to 10:00 Pm
+                <br>
+                Fri 10:00 Am to 10:00 Pm
+                <br>
+                Sat 10:00 Am to 10:00 Pm
+            </h2>
+            </h2>
+
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="./index.js"></script>
+    </body>
+    </html>
